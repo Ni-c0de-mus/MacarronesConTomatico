@@ -10,6 +10,11 @@ You must create a settings.py file because I use a PostgreSQL database and I hav
 
 there is a file that contains the EER diagram of the database [EER_Diagram.png](EER_Diagram.png)
 
+### Testing project ⚙
+
+This projects has some Django Apps, you must add to <strong>settings.py</strong> the following apps:
+- receta
+
 ## Expressions of gratitude 🎁
 
 - Tell others about this project 📢
