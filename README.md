@@ -14,6 +14,7 @@ there is a file that contains the EER diagram of the database [EER_Diagram.png](
 
 This projects has some Django Apps, you must add to <strong>settings.py</strong> the following apps:
 - receta
+- macarrones (To be able to create generic templates and that are accessible from another app)
 
 ## Expressions of gratitude 🎁
 
