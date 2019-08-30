@@ -30,15 +30,17 @@ class Receta(models.Model):
     idReceta = models.AutoField(primary_key=True)
     idPropietario = models.ForeignKey(User, on_delete=models.PROTECT)
     titulo = models.CharField(max_length=250)
-    descripcion = models.TextField(blank=True)
+    descripcion = models.TextField(blank=True, default='')
     urlFoto = models.URLField()
     fechaCreacion = models.DateTimeField(auto_now_add=True)
     fechaActualizacion = models.DateTimeField(auto_now=True)
-    vecesVista = models.IntegerField(default=0)
-    vecesCompartida = models.IntegerField(default=0)
-    numMeGusta = models.IntegerField(default=0)
-    visible = models.BooleanField(default=True)
+    vecesVista = models.IntegerField(default=0, blank=True)
+    vecesCompartida = models.IntegerField(default=0, blank=True)
+    numMeGusta = models.IntegerField(default=0, blank=True)
+    visible = models.BooleanField(default=True, blank=True)
     tipoReceta = models.ForeignKey(TipoReceta, on_delete=models.PROTECT)
+    costeReceta = models.DecimalField(blank=True, default=0, decimal_places=2, max_digits=10)
+    minustosTiempoPreparacion = models.IntegerField(blank=0, default=0)
 
     def __str__(self):
         return self.titulo
