@@ -40,22 +40,10 @@ class Receta(models.Model):
     visible = models.BooleanField(default=True, blank=True)
     tipoReceta = models.ForeignKey(TipoReceta, on_delete=models.PROTECT)
     costeReceta = models.DecimalField(blank=True, default=0, decimal_places=2, max_digits=10)
-    minustosTiempoPreparacion = models.IntegerField(blank=0, default=0)
+    minutosTiempoPreparacion = models.IntegerField(blank=0, default=0)
 
     def __str__(self):
         return self.titulo
-
-
-class RecetasCategorias(models.Model):
-    idReceta: models.ForeignKey(Receta, on_delete=models.PROTECT)
-    idCategoria: models.ForeignKey(Categorias, on_delete=models.PROTECT)
-
-    # TODO: controlar al insertar que no puedan repetirse recetas y categorías
-    # class Meta:
-        # unique_together = (("idReceta", "idCategoria"),)
-
-    def __str__(self):
-        return self.idReceta
 
 
 class Ingredientes(models.Model):
@@ -71,7 +59,7 @@ class Ingredientes(models.Model):
 class PasosReceta(models.Model):
     idReceta = models.ForeignKey(Receta, on_delete=models.PROTECT)
     descPaso = models.TextField()
-    urlImagenPaso = models.URLField()
+    urlImagenPaso = models.URLField(blank=True, default='')
 
     def __str__(self):
         return self.descPaso
@@ -108,7 +96,19 @@ class DetalleListaUsuario(models.Model):
 
     # TODO: Controlar al insertar que no puedarn repetirse recetas en la misma lista
     # class Meta:
-        # unique_together = (("idUsuario", "numLista", "numReceta"),)
+    # unique_together = (("idUsuario", "numLista", "numReceta"),)
 
     def __str__(self):
         return self.numLista
+
+
+class CategoriasReceta(models.Model):
+    idReceta = models.ForeignKey(Receta, on_delete=models.PROTECT)
+    idCategoria = models.ForeignKey(Categorias, on_delete=models.PROTECT)
+
+    # TODO: controlar al insertar que no puedan repetirse recetas y categorías
+    # class Meta:
+    # unique_together = (("idReceta", "idCategoria"),)
+
+    def __str__(self):
+        return str(self.idReceta)
