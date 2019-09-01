@@ -1,2 +1,2 @@
-/macarrones/static/js/* linguistic-vendored=true
+macarrones/static/js/* linguistic-vendored=true
 *.rb linguistic-language=Javascript
