@@ -1,3 +1,2 @@
-static/* linguist-vendored
 macarrones/static/js/* linguistic-vendored=true
-*.rb linguistic-language=Javascript
+*.rb linguistic-language=Python
