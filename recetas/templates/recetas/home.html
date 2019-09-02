@@ -3,6 +3,8 @@
     <h1>Bienvenido a Macarrones con tomatico</h1>
     <p>Noobs Cook Community</p>
 
-
+    {% if recetas_list|length > 0 %}
+        {% include 'recetas/recetas_loop.html' %}
+    {% endif %}
 
 {% endblock %}
